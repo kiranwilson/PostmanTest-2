@@ -1,0 +1,109 @@
+{
+  "variables": [],
+  "info": {
+    "name": "VofoxApi",
+    "_postman_id": "8c67609c-74d8-fa1f-32f6-3970dcbe8652",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "c1f6d4b7-40e1-bd70-b1d9-2ab037dc9434",
+      "name": "http://192.168.10.141/ClassroomResponder/token",
+      "request": {
+        "url": "http://192.168.10.141/ClassroomResponder/token",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text",
+              "enabled": true,
+              "warning": ""
+            },
+            {
+              "key": "username",
+              "value": "dennis@vofoxsolutions.com",
+              "type": "text",
+              "enabled": true,
+              "warning": ""
+            },
+            {
+              "key": "password",
+              "value": "Password1!",
+              "type": "text",
+              "enabled": true,
+              "warning": ""
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "45bddfe9-067e-1b39-1240-b892680f515c",
+      "name": "http://192.168.10.141/ClassroomResponder/api/users/afca35d3-5ba5-4e89-a098-2c76c9aa3bf5",
+      "request": {
+        "url": "http://192.168.10.141/ClassroomResponder/api/users/afca35d3-5ba5-4e89-a098-2c76c9aa3bf5",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "d9cc7466-4da9-dd59-2248-fdc61a40e04b",
+      "name": "http://192.168.10.141/ClassroomResponder/api/teachers/afca35d3-5ba5-4e89-a098-2c76c9aa3bf5",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Success\"] = responseCode.code === 200;",
+              "",
+              "var body = JSON.parse(responseBody);",
+              "",
+              "tests[\"Student records \"] = body.students.length === 9;",
+              "",
+              "tests[\"Code\"]= body.code === \"L1RWKREYN\";",
+              "",
+              "tests[\"Student Group\"]= body.studentGroups === null;"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://192.168.10.141/ClassroomResponder/api/teachers/afca35d3-5ba5-4e89-a098-2c76c9aa3bf5",
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{authorization}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}
